@@ -557,7 +557,7 @@ public final class PermissionControllerServiceImpl extends PermissionControllerL
             switch (grantState) {
                 case PERMISSION_GRANT_STATE_GRANTED:
                     if (AdminRestrictedPermissionsUtils.mayAdminGrantPermission(perm.getName(),
-                            canAdminGrantSensorsPermissions, isManagedProfile)) {
+                            group.getName(), canAdminGrantSensorsPermissions, isManagedProfile)) {
                         perm.setPolicyFixed(true);
                         group.grantRuntimePermissions(false, false, new String[]{permName});
                         autoGrantPermissionsNotifier.onPermissionAutoGranted(permName);
