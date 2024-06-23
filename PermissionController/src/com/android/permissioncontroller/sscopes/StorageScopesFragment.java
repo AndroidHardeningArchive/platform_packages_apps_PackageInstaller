@@ -118,6 +118,8 @@ public final class StorageScopesFragment extends PackageExtraConfigFragment {
         categoryFiles = createCategory(this, R.string.sscopes_files);
 
         footer = createFooterPreference(this);
+
+        update();
     }
 
     public void update() {
