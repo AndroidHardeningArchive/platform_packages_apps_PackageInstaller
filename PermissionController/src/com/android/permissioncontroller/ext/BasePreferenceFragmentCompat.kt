@@ -21,9 +21,17 @@ abstract class BasePreferenceFragmentCompat : PreferenceFragmentCompat() {
         preferenceScreen = preferenceManager.createPreferenceScreen(context_)
     }
 
+    private var callUpdateOnResume = false
+
     override fun onResume() {
         super.onResume()
-        update()
+        if (callUpdateOnResume) {
+            update()
+        } else {
+            // update() has to be called by subclasses from onCreate() to avoid state loss after
+            // configuration change. onCreate() is called right before the first onResume()
+            callUpdateOnResume = true
+        }
     }
 
     override fun onStart() {
