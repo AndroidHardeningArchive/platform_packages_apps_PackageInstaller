@@ -92,6 +92,8 @@ class ContactScopesFragment : PackageExtraConfigFragment(), MenuProvider {
         footer = createFooterPreference()
 
         requireActivity().addMenuProvider(this, this)
+
+        update()
     }
 
     private fun createScopeTypeCategory(type: Int, label: Int): PreferenceCategory {
