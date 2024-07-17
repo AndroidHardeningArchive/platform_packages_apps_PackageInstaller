@@ -491,7 +491,7 @@ object RuntimePermissionsUpgradeController {
                     LightPermission(
                         perm.pkgInfo,
                         perm.permInfo,
-                        perm.isGrantedIncludingAppOp,
+                        perm.isGranted,
                         perm.flags or FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT,
                         perm.foregroundPerms
                     )
@@ -568,7 +568,7 @@ object RuntimePermissionsUpgradeController {
                         !perm.isUserSet &&
                             !perm.isSystemFixed &&
                             !perm.isPolicyFixed &&
-                            !perm.isGrantedIncludingAppOp
+                            !perm.isGranted
                     ) {
                         grants.add(
                             Grant(false, appPermGroup, listOf(permission.ACCESS_MEDIA_LOCATION))
@@ -669,7 +669,7 @@ object RuntimePermissionsUpgradeController {
                         LightPermission(
                             perm.pkgInfo,
                             perm.permInfo,
-                            perm.isGrantedIncludingAppOp,
+                            perm.isGranted,
                             perm.flags or FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT,
                             perm.foregroundPerms
                         )
