@@ -781,6 +781,11 @@ public final class SafetyCenterDataFactory {
             @UserIdInt int userId,
             @ProfileType int profileType,
             boolean isUserRunning) {
+        if (safetySource.getUser() == SafetySource.USER_PRIMARY
+                && !android.os.UserHandle.of(userId).isSystem()) {
+            return;
+        }
+
         SafetyCenterStaticEntry staticEntry =
                 toSafetyCenterStaticEntry(
                         safetySource,
