@@ -121,7 +121,6 @@
 
             <static-safety-source
                 id="AndroidExploitProtectionSettings"
-                user="primary"
                 profile="primary_profile_only"
                 intentAction="com.android.settings.EXPLOIT_PROTECTION_SETTINGS"
                 title="@com.android.safetycenter.resources:string/exploit_protection_title"
